@@ -1,11 +1,16 @@
-import { Button } from "@/components/ui/button"
- 
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AlbumPage } from './pages/AlbumPage';
+import { SongsPage } from './pages/SongsPage';
+
 function App() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-svh">
-      <Button>Click me</Button>
-    </div>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<AlbumPage />} />
+        <Route path="/album/:albumId" element={<SongsPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
- 
-export default App
+
+export default App;
