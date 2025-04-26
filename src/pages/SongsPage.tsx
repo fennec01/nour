@@ -28,7 +28,7 @@ export function SongsPage() {
       {/* Main content */}
       <div className="flex flex-col items-center justify-center flex-1 p-6">
         {songs.map((song, index) => (
-          <Button key={song} className="m-4 w-64 text-xl py-4" onClick={() => setCurrentSong(`/songs/${song}`)}>
+          <Button key={song} className="m-4 w-64 text-xl py-4" onClick={() => setCurrentSong(`https://cdn.jsdelivr.net/gh/fennec01/nour/public/songs/${song}`)}>
             {'الجزء ' + (index + 1)}
           </Button>
         ))}

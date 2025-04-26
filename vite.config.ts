@@ -4,8 +4,9 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
-// https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
+  mode: mode,
+  base: mode === 'development' ? '/' : '/nour/',
   plugins: [
     react(), 
     tailwindcss(),
@@ -13,9 +14,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'robots.txt', 'icons/icon-512.png'],
       manifest: {
-        name: 'Music App',
-        short_name: 'MusicApp',
-        description: 'Listen to your favorite albums offline!',
+        name: 'Nour app',
+        short_name: 'NourApp',
+        description: 'Listen to Nour',
         theme_color: '#ffffff',
         background_color: '#ffffff',
         display: 'standalone',
@@ -57,4 +58,4 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-})
+}));
