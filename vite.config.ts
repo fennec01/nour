@@ -17,11 +17,11 @@ export default defineConfig(({ mode }) => ({
         name: 'Nour app',
         short_name: 'NourApp',
         description: 'Listen to Nour',
-        theme_color: '#ffffff',
-        background_color: '#ffffff',
+        theme_color: '#000000',
+        background_color: '#000000',
         display: 'standalone',
-        start_url: '/',
-        scope: '/',
+        start_url: '/nour/',
+        scope: '/nour/',
         icons: [
           {
             src: '/icons/icon-192.png',

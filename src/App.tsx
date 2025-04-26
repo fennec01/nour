@@ -4,7 +4,7 @@ import { SongsPage } from './pages/SongsPage';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter   basename={import.meta.env.DEV ? "/" : "/nour"}>
       <Routes>
         <Route path="/" element={<AlbumPage />} />
         <Route path="/album/:albumId" element={<SongsPage />} />
