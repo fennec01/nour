@@ -41,7 +41,7 @@ export function AlbumPage() {
         <div className="flex gap-2">
           {deferredPrompt && (
             <Button variant="outline" size="sm" onClick={handleInstallClick}>
-              📲 Install
+              📲 تحميل
             </Button>
           )}
           <Button variant="outline" size="sm" onClick={() => setIsDark(!isDark)}>
