@@ -6,7 +6,7 @@ import { useTheme } from "@/hooks/useTheme";
 export function AlbumPage() {
   const navigate = useNavigate();
   const { isDark, setIsDark } = useTheme();
-  const albums = ['النجم (53)', 'لقمان (31)'];
+  const albums = ['النجم (53)'];
 
   // PWA install prompt
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
@@ -33,7 +33,7 @@ export function AlbumPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-white dark:bg-gray-900 transition-colors">
+    <div className="flex flex-col min-h-screen transition-colors">
       {/* Navbar */}
       <nav className="w-full flex items-center justify-between bg-gray-100 dark:bg-gray-800 p-4 shadow-sm">
         <Button variant="outline" size="sm">🔃</Button>
