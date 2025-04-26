@@ -10,7 +10,7 @@ export function SongsPage() {
   const { isDark, setIsDark } = useTheme();
   const [currentSong, setCurrentSong] = useState<string | null>(null);
 
-  const songs = ['najm1.mp3', 'najm2.mp3', 'najm3.mp3'];
+  const songs = ['alnajm1.mp3', 'alnajm2.mp3', 'alnajm3.mp3'];
 
   return (
     <div className="flex flex-col min-h-screen bg-white dark:bg-gray-900 transition-colors">
