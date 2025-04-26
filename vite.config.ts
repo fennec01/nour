@@ -36,6 +36,7 @@ export default defineConfig(({ mode }) => ({
         ]
       },
       workbox: {
+        navigateFallback: '/nour/index.html',
         runtimeCaching: [
           {
             urlPattern: ({ request }) => request.destination === 'audio',
