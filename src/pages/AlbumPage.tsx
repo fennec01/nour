@@ -6,7 +6,7 @@ import { useTheme } from "@/hooks/useTheme";
 export function AlbumPage() {
   const navigate = useNavigate();
   const { isDark, setIsDark } = useTheme();
-  const albums = ['Chill Vibes', 'Workout Hits'];
+  const albums = ['النجم (53)', 'لقمان (31)'];
 
   // PWA install prompt
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
@@ -55,7 +55,7 @@ export function AlbumPage() {
         {albums.map((album) => (
           <Button
             key={album}
-            className="m-2 w-48"
+            className="m-4 w-64 text-xl py-4"
             onClick={() => navigate(`/album/${album}`)}
           >
             {album}
