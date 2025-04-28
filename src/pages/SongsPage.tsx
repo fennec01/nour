@@ -1,8 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { AudioPlayer } from "@/components/AudioPlayer";
 import { useTheme } from "@/hooks/useTheme";
+import { TapButton } from "@/components/TapButton";
 
 export function SongsPage() {
   const { albumId } = useParams();
@@ -16,21 +16,21 @@ export function SongsPage() {
     <div className="flex flex-col min-h-screen transition-colors">
       {/* Navbar */}
       <nav className="w-full flex items-center justify-between bg-gray-100 dark:bg-gray-800 p-4 shadow-sm">
-        <Button variant="outline" size="sm" onClick={() => navigate("/")}>
+        <TapButton variant="outline" size="sm" onClick={() => navigate("/")}>
           ← رجوع
-        </Button>
+        </TapButton>
         <h2 className="text-xl font-semibold">{albumId}</h2>
-        <Button variant="outline" size="sm" onClick={() => setIsDark(!isDark)}>
+        <TapButton variant="outline" size="sm" onClick={() => setIsDark(!isDark)}>
           {isDark ? '☀️' : '🌙'}
-        </Button>
+        </TapButton>
       </nav>
 
       {/* Main content */}
       <div className="flex flex-col items-center justify-center flex-1 p-6">
         {songs.map((song, index) => (
-          <Button key={song} className="m-4 w-64 text-xl py-4" onClick={() => setCurrentSong(`https://cdn.jsdelivr.net/gh/fennec01/nour@gh-pages/songs/${song}`)}>
+          <TapButton key={song} className="m-4 w-64 text-xl py-4" onClick={() => setCurrentSong(`https://cdn.jsdelivr.net/gh/fennec01/nour@gh-pages/songs/${song}`)}>
             {'الجزء ' + (index + 1)}
-          </Button>
+          </TapButton>
         ))}
       </div>
 
