@@ -12,10 +12,10 @@ export default defineConfig(({ mode }) => ({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'robots.txt', 'icons/icon-512.png'],
+      includeAssets: ['icons/icon.svg', 'robots.txt', 'icons/icon-512.png'],
       manifest: {
-        name: 'Nour app',
-        short_name: 'NourApp',
+        name: 'Nour',
+        short_name: 'Nour',
         description: 'Listen to Nour',
         theme_color: '#000000',
         background_color: '#000000',
