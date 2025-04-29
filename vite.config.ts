@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => ({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['icons/icon.svg', 'robots.txt', 'icons/icon-512.png'],
+      includeAssets: ['/nour/icons/icon.svg', 'icons/icon-512.png'],
       manifest: {
         name: 'Nour',
         short_name: 'Nour',

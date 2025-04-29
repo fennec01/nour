@@ -3,6 +3,14 @@ import { useState } from "react";
 import { AudioPlayer } from "@/components/AudioPlayer";
 import { useTheme } from "@/hooks/useTheme";
 import { TapButton } from "@/components/TapButton";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 export function SongsPage() {
   const { albumId } = useParams();
@@ -24,6 +32,21 @@ export function SongsPage() {
           {isDark ? '☀️' : '🌙'}
         </TapButton>
       </nav>
+
+      {/* Select Component */}
+      <div className="p-4 flex justify-center">
+      <Select>
+      <SelectTrigger className="w-[180px] justify-center text-center text-xl">
+        <SelectValue placeholder="القارئ" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectGroup>
+          <SelectItem value="hamza" className="text-xl">حمزة</SelectItem>
+          <SelectItem value="yacin" className="text-xl">ياسين</SelectItem>
+        </SelectGroup>
+      </SelectContent>
+    </Select>
+      </div>
 
       {/* Main content */}
       <div className="flex flex-col items-center justify-center flex-1 p-6">
