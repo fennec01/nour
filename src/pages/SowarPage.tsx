@@ -2,11 +2,11 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useTheme } from "@/hooks/useTheme";
 import { TapButton } from "@/components/TapButton";
+import { dataPro } from "@/data/data";
 
 export function SowarPage() {
   const navigate = useNavigate();
   const { isDark, setIsDark } = useTheme();
-  const sowar = ['النجم (53)'];
 
   // PWA install prompt
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
@@ -52,16 +52,16 @@ export function SowarPage() {
 
       {/* Main content */}
       <div className="flex flex-col items-center justify-center flex-1 p-6">
-        {sowar.map((surah) => (
-          <TapButton
-            key={surah}
-            className="m-4 w-64 text-xl py-4"
-            onClick={() => navigate(`/${surah}`)}
-          >
-            {surah}
-          </TapButton>
-        ))}
-      </div>
+  {dataPro.map((surah) => (
+    <TapButton
+      key={surah.id}
+      className="m-4 w-64 text-xl py-4"
+      onClick={() => navigate(`/${surah.id}`)}
+    >
+      {surah.id} - {surah.name}
+    </TapButton>
+  ))}
+</div>
     </div>
   );
 }

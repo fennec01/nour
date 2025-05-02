@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AudioPlayer } from "@/components/AudioPlayer";
 import { useTheme } from "@/hooks/useTheme";
 import { TapButton } from "@/components/TapButton";
@@ -11,14 +11,31 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { dataPro } from "@/data/data";
 
 export function SurahPage() {
   const { surahId } = useParams();
   const navigate = useNavigate();
   const { isDark, setIsDark } = useTheme();
+  const surah = surahId ? dataPro.find(item => item.id === parseInt(surahId, 10)) : null;
   const [currentSurahPart, setCurrentSurahPart] = useState<string | null>(null);
+  const [selectedReciter, setSelectedReciter] = useState<string>(
+  surah?.reciters?.[0] || ""
+);
 
-  const sowar = ['alnajm1.mp3', 'alnajm2.mp3', 'alnajm3.mp3'];
+  const reciterNames: { [key: string]: string } = {
+    hamza: "حمزة",
+    yacin: "ياسين",
+    humaid: "حميد"
+  };
+
+
+
+  useEffect(() => {
+    if (surah?.reciters?.length) {
+      setSelectedReciter(surah.reciters[0]); // auto-select first reciter
+    }
+  }, [surah]);
 
   return (
     <div className="flex flex-col min-h-screen transition-colors">
@@ -27,34 +44,49 @@ export function SurahPage() {
         <TapButton variant="outline" size="sm" onClick={() => navigate("/")}>
           ← رجوع
         </TapButton>
-        <h2 className="text-xl font-semibold">{surahId}</h2>
+        <h2 className="text-xl font-semibold">{surah?.name} - {surahId}</h2>
         <TapButton variant="outline" size="sm" onClick={() => setIsDark(!isDark)}>
           {isDark ? '☀️' : '🌙'}
         </TapButton>
       </nav>
 
       {/* Select Component */}
-      <div className="p-4 flex justify-center">
-      <Select>
+      {surah?.reciters && (
+  <div className="p-4 flex justify-center">
+    <Select value={selectedReciter} onValueChange={setSelectedReciter}> {/* optional state handler */}
       <SelectTrigger className="w-[180px] justify-center text-center text-xl">
         <SelectValue placeholder="القارئ" />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectItem value="hamza" className="text-xl">حمزة</SelectItem>
-          <SelectItem value="yacin" className="text-xl">ياسين</SelectItem>
+          {surah.reciters.map((reciter) => (
+            <SelectItem key={reciter} value={reciter} className="text-xl">
+             {reciterNames[reciter] || reciter}
+            </SelectItem>
+          ))}
         </SelectGroup>
       </SelectContent>
     </Select>
-      </div>
-
+  </div>
+)}
       {/* Main content */}
       <div className="flex flex-col items-center justify-center flex-1 p-6">
-        {sowar.map((surah, index) => (
-          <TapButton key={surah} className="m-4 w-64 text-xl py-4" onClick={() => setCurrentSurahPart(`https://cdn.jsdelivr.net/gh/fennec01/nour@gh-pages/sowar/${surah}`)}>
-            {'الجزء ' + (index + 1)}
+      {surah?.parts && Array.from({ length: surah.parts }, (_, index) => {
+        const part = index + 1;
+        return (
+          <TapButton
+            key={part}
+            className="m-4 w-64 text-xl py-4"
+            onClick={() =>
+              setCurrentSurahPart(
+                `https://cdn.jsdelivr.net/gh/test/tset@gh-pages/sowar/${surahId}/${selectedReciter}/${part}.mp3`
+              )
+            }
+          >
+            {'الجزء ' + part}
           </TapButton>
-        ))}
+        );
+      })}
       </div>
 
       {/* Sticky AudioPlayer */}
