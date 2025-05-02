@@ -79,7 +79,7 @@ export function SurahPage() {
             className="m-4 w-64 text-xl py-4"
             onClick={() =>
               setCurrentSurahPart(
-                `https://cdn.jsdelivr.net/gh/test/tset@gh-pages/sowar/${surahId}/${selectedReciter}/${part}.mp3`
+                `https://cdn.jsdelivr.net/gh/fennec01/nour@gh-pages/sowar/${surahId}/${selectedReciter}/${part}.mp3`
               )
             }
           >
