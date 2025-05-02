@@ -14,7 +14,7 @@ export function AudioPlayer({ src }: { src: string }) {
     // Change source
     audio.src = src;
     
-    // Load new song
+    // Load new surah part
     audio.load();
     
     // Try to play safely
