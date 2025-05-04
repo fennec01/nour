@@ -18,7 +18,8 @@ export function SurahPage() {
   const navigate = useNavigate();
   const { isDark, setIsDark } = useTheme();
   const surah = surahId ? dataPro.find(item => item.id === parseInt(surahId, 10)) : null;
-  const [currentSurahPart, setCurrentSurahPart] = useState<string | null>(null);
+  const [surahUrl, setSurahUrl] = useState<string | null>(null);
+  const [surahPart, setSurahPart] = useState<string | null>(null);
   const [selectedReciter, setSelectedReciter] = useState<string>(
   surah?.reciters?.[0] || ""
 );
@@ -54,7 +55,18 @@ export function SurahPage() {
       {/* Select Component */}
       {surah?.reciters && (
   <div className="p-4 flex justify-center">
-    <Select value={selectedReciter} onValueChange={setSelectedReciter}> {/* optional state handler */}
+    <Select
+      value={selectedReciter}
+      onValueChange={(newReciter) => {
+        setSelectedReciter(newReciter);
+        if(surahPart){
+          setSurahUrl(
+              `https://cdn.jsdelivr.net/gh/fennec01/nour@gh-pages/sowar/${surahId}/${newReciter}/${surahPart}.mp3`   
+          );
+        }
+        
+      }}
+    >
       <SelectTrigger className="w-[180px] justify-center text-center text-xl">
         <SelectValue placeholder="القارئ" />
       </SelectTrigger>
@@ -79,9 +91,13 @@ export function SurahPage() {
             key={part}
             className="m-4 w-64 text-xl py-4"
             onClick={() =>
-              setCurrentSurahPart(
+            {
+              setSurahPart(part.toString());
+              setSurahUrl(
                 `https://cdn.jsdelivr.net/gh/fennec01/nour@gh-pages/sowar/${surahId}/${selectedReciter}/${part}.mp3`
               )
+            }
+
             }
           >
             {'الجزء ' + part}
@@ -91,9 +107,9 @@ export function SurahPage() {
       </div>
 
       {/* Sticky AudioPlayer */}
-      {currentSurahPart && (
+      {surahUrl && (
         <div className="fixed bottom-0 left-0 w-full bg-gray-100 dark:bg-gray-800 shadow-md p-4">
-          <AudioPlayer src={currentSurahPart} />
+          <AudioPlayer src={surahUrl} />
         </div>
       )}
     </div>
