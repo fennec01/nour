@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useTheme } from "@/hooks/useTheme";
 import { TapButton } from "@/components/TapButton";
+import { Badge } from "@/components/ui/badge";
 import { dataPro } from "@/data/data";
 
 export function SowarPage() {
@@ -54,12 +55,15 @@ export function SowarPage() {
       <div className="flex flex-col items-center justify-center flex-1 p-6">
   {dataPro.map((surah) => (
     <TapButton
-      key={surah.id}
-      className="m-4 w-64 text-xl py-4"
-      onClick={() => navigate(`/${surah.id}`)}
-    >
-      {surah.id} - {surah.name}
-    </TapButton>
+  key={surah.id}
+  className="relative m-4 w-64 text-xl py-4"
+  onClick={() => navigate(`/${surah.id}`)}
+>
+  {surah.name}
+  <Badge className="absolute top-1 right-1 rounded-full px-2 py-1 text-xs">
+    {surah.id}
+  </Badge>
+</TapButton>
   ))}
 </div>
     </div>

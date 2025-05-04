@@ -6,15 +6,15 @@ export const dataPro = [
         reciters: ["humaid"]
     },
     {
-        id: 53,
-        name: "النجم",
-        parts: 3,
-        reciters: ["hamza","yacin","afasi"]
-    },
-    {
         id: 31,
         name: "لقمان",
         parts: 5,
         reciters: ["yacin"]
+    },
+    {
+        id: 53,
+        name: "النجم",
+        parts: 3,
+        reciters: ["hamza","yacin","afasi"]
     }
 ];
