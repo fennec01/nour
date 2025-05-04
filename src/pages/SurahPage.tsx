@@ -12,6 +12,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { dataPro } from "@/data/data";
+import { Badge } from "@/components/ui/badge";
 
 export function SurahPage() {
   const { surahId } = useParams();
@@ -46,10 +47,17 @@ export function SurahPage() {
         <TapButton variant="outline" size="sm" onClick={() => navigate("/")}>
           ← رجوع
         </TapButton>
-        <h2 className="text-xl font-semibold">{surah?.name} - {surahId}</h2>
+        <div className="flex items-center gap-2">
+          <h2 className="text-xl font-semibold">{surah?.name}    
+          </h2>   
+          <Badge variant="outline" className="rounded-full px-1 text-xs">
+            {surah?.id}
+          </Badge>
+        </div>
         <TapButton variant="outline" size="sm" onClick={() => setIsDark(!isDark)}>
           {isDark ? '☀️' : '🌙'}
         </TapButton>
+        
       </nav>
 
       {/* Select Component */}
