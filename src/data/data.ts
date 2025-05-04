@@ -1,5 +1,11 @@
 export const dataPro = [
     {
+        id: 18,
+        name: "الكهف",
+        parts: 3,
+        reciters: ["humaid"]
+    },
+    {
         id: 53,
         name: "النجم",
         parts: 3,
