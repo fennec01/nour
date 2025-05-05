@@ -3,7 +3,8 @@ export const dataPro = [
         id: 18,
         name: "الكهف",
         parts: 3,
-        reciters: ["humaid"]
+        reciters: ["humaid"],
+        imagesStartIndex: 293
     },
     {
         id: 31,
