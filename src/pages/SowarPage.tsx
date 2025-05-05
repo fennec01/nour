@@ -4,6 +4,7 @@ import { useTheme } from "@/hooks/useTheme";
 import { TapButton } from "@/components/TapButton";
 import { Badge } from "@/components/ui/badge";
 import { dataPro } from "@/data/data";
+import { Moon, RefreshCw, Sun } from "lucide-react";
 
 export function SowarPage() {
   const navigate = useNavigate();
@@ -37,7 +38,9 @@ export function SowarPage() {
     <div className="flex flex-col min-h-screen transition-colors">
       {/* Navbar */}
       <nav className="w-full flex items-center justify-between bg-gray-100 dark:bg-gray-800 p-4 shadow-sm">
-        <TapButton variant="outline" size="sm">🔃</TapButton>
+        <TapButton variant="outline" size="sm" onClick={() => window.location.reload()}>
+          <RefreshCw className="h-4 w-4" />
+        </TapButton>
         <h1 className="text-2xl font-bold">السور</h1>
         <div className="flex gap-2">
           {deferredPrompt && (
@@ -46,7 +49,7 @@ export function SowarPage() {
             </TapButton>
           )}
           <TapButton variant="outline" size="sm" onClick={() => setIsDark(!isDark)}>
-            {isDark ? '☀️' : '🌙'}
+            {isDark ? <Sun /> : <Moon />}
           </TapButton>
         </div>
       </nav>

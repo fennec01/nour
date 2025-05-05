@@ -14,7 +14,7 @@ import {
 import { dataPro } from "@/data/data";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { Expand } from "lucide-react"; // icon lib used by chadcn
+import { Expand, Moon, Sun } from "lucide-react"; // icon lib used by chadcn
 
 export function SurahPage() {
   const { surahId } = useParams();
@@ -57,7 +57,7 @@ export function SurahPage() {
           </Badge>
         </div>
         <TapButton variant="outline" size="sm" onClick={() => setIsDark(!isDark)}>
-          {isDark ? '☀️' : '🌙'}
+          {isDark ? <Sun /> : <Moon />}
         </TapButton>
         
       </nav>
