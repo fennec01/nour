@@ -120,7 +120,7 @@ export function SurahPage() {
                 <img
                 src={
                   reciterQuran[selectedReciter] === 'warsh'
-                  ? `https://cdn.jsdelivr.net/gh/fennec01/nour@gh-pages/img/warsh/${surahId}/${part}.png`
+                  ? `https://cdn.jsdelivr.net/gh/fennec01/nour@gh-pages/img/warsh/${surahId}/${part}.jpg`
                   : `https://ik.imagekit.io/hefz/quran/${surah?.imagesStartIndex + index}.webp`
                 }
                 alt={`Preview for part ${part}`}
