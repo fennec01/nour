@@ -10,12 +10,14 @@ export const dataPro = [
         id: 31,
         name: "لقمان",
         parts: 5,
-        reciters: ["yacin"]
+        reciters: ["yacin"],
+        imagesStartIndex: 411
     },
     {
         id: 53,
         name: "النجم",
         parts: 3,
-        reciters: ["hamza","yacin","afasi"]
+        reciters: ["hamza","yacin","afasi"],
+        imagesStartIndex: 526
     }
 ];

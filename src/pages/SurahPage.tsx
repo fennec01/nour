@@ -105,6 +105,7 @@ export function SurahPage() {
               <DialogTrigger asChild>
             <TapButton variant="secondary" className="px-4 py-4">
             <Expand className="h-4 w-4" />
+            حفص
             </TapButton>
               </DialogTrigger>
                 <DialogContent className="flex items-center justify-center gap-0">
