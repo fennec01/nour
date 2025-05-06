@@ -30,7 +30,7 @@ export function SurahPage() {
   const reciterNames: { [key: string]: string } = {
     hamza: "حمزة (ورش)",
     yacin: " ياسين (ورش)",
-    humaid: "حميد (ورش)",
+    humaid: "حميد (حفص)",
     afasi: "العفاسي (حفص)"
   };
 
