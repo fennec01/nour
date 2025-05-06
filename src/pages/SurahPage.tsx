@@ -28,11 +28,18 @@ export function SurahPage() {
 );
 
   const reciterNames: { [key: string]: string } = {
-    hamza: "حمزة",
-    yacin: "ياسين",
-    humaid: "حميد",
-    afasi: "العفاسي"
+    hamza: "حمزة (ورش)",
+    yacin: " ياسين (ورش)",
+    humaid: "حميد (ورش)",
+    afasi: "العفاسي (حفص)"
   };
+
+  const reciterQuran:{ [key: string]: string } = {
+    hamza: 'warsh',
+    yacin: 'warsh',
+    humaid: 'hafs',
+    afasi: 'hafs'
+  }
 
 
 
@@ -105,17 +112,20 @@ export function SurahPage() {
               <DialogTrigger asChild>
             <TapButton variant="secondary" className="px-4 py-4">
             <Expand className="h-4 w-4" />
-            حفص
             </TapButton>
               </DialogTrigger>
                 <DialogContent className="flex items-center justify-center gap-0">
-              <DialogTitle></DialogTitle>
-              <DialogDescription></DialogDescription>
-              <img
-              src={`https://ik.imagekit.io/hefz/quran/${surah?.imagesStartIndex+index}.webp`}
-              alt={`Preview for part ${part}`}
-              className={`max-w-full h-auto ${isDark ? 'invert' : ''}`}
-              />
+                <DialogTitle></DialogTitle>
+                <DialogDescription></DialogDescription>
+                <img
+                src={
+                  reciterQuran[selectedReciter] === 'warsh'
+                  ? `https://cdn.jsdelivr.net/gh/fennec01/nour@gh-pages/img/warsh/${surahId}/${part}.png`
+                  : `https://ik.imagekit.io/hefz/quran/${surah?.imagesStartIndex + index}.webp`
+                }
+                alt={`Preview for part ${part}`}
+                className={`max-w-full h-auto ${isDark ? 'invert' : ''}`}
+                />
                 </DialogContent>
             </Dialog>
           )}
