@@ -100,7 +100,7 @@ export function SurahPage() {
   </div>
 )}
 {/* Main content */}
-<div className="flex flex-col justify-center items-center flex-1 p-6 ">
+<div className="flex flex-col justify-center items-center flex-1 p-6 pb-28 sm:pb-6">
   {surah?.parts &&
     Array.from({ length: surah.parts }, (_, index) => {
       const part = index + 1;
