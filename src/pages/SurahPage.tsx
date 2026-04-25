@@ -120,8 +120,8 @@ export function SurahPage() {
                 <img
                 src={
                   reciterQuran[selectedReciter] === 'warsh'
-                  ? `https://hefzmoyaser.net/images/quran2/${surah?.imagesStartIndex + index}.webp`
-                  : `https://hefzmoyaser.net/images/quran/${surah?.imagesStartIndex + index}.webp`
+                  ? `https://newapi.hefzmoyaser.net/storage/mushaf_images/warsh/${surah?.imagesStartIndex + index}.webp`
+                  : `https://newapi.hefzmoyaser.net/storage/mushaf_images/hafs/${surah?.imagesStartIndex + index}.webp`
                 }
                 alt={`Preview for part ${part}`}
                 className={`max-w-full h-auto ${isDark ? 'invert' : ''}`}
