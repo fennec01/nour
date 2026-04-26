@@ -13,6 +13,13 @@ export const dataPro = [
         reciters: ["humaid"],
         imagesStartIndex: 293
     },
+     {
+        id: 19,
+        name: "مريم",
+        parts: 8,
+        reciters: ["humaid"],
+        imagesStartIndex: 305
+    },
     {
         id: 23,
         name: "المؤمنون",
