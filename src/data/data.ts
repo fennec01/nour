@@ -35,6 +35,13 @@ export const dataPro = [
         imagesStartIndex: 411
     },
     {
+        id: 41,
+        name: "فصلت",
+        parts: 6,
+        reciters: ["afasi"],
+        imagesStartIndex: 477
+    },
+    {
         id: 53,
         name: "النجم",
         parts: 3,
